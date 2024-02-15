@@ -61,14 +61,49 @@ def remove_duplicates(nums):
     return len(uniques)
 
 
-# def longest_common_prefix(strs):
-#     """
-#     :type strs: List[str]
-#     :rtype: str
-#     """
+# Write a function to find the longest common prefix string amongst an array of strings.
+def longest_common_prefix(strs=["flowers", "flow"]):
+    """
+    :type strs: List[str]
+    :rtype: str
+    """
+
+    # grab the first string to use to compare against the others
+    first_str = strs[0]
+
+    # loop through each character in the first one
+    # build a string as we go until we hit a character that is not a match then break
+    matched_results = []
+    for word in strs[1:]:
+        # loop through the length of the shorter word
+
+        matched_letters = ""
+        for i in range(min(len(word), len(first_str))):
+            if first_str[i] == word[i]:
+                matched_letters += word[i]
+        matched_results.append(matched_letters)
+
+    return min(matched_results, key=len)
+
+
+# Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
+# valid.
+def is_valid(s):
+    """
+    :type s: str
+    :rtype: bool
+    """
+    # brackets = ['(', '']
+    # loop through each character in the word
+    for c in s:
+        # if the letter is a bracket, add it to a stack or a map
+        pass
+    # loop through the stack
+        # iterate on both ends?
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    two_sum()
-    is_palindrome()
+    # two_sum()
+    # is_palindrome()
+    longest_common_prefix()

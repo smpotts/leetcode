@@ -19,6 +19,12 @@ class QuestionsTest(unittest.TestCase):
         self.assertEqual(q.remove_duplicates([1,1,2]), 2)
         self.assertEqual(q.remove_duplicates([0,0,1,1,1,2,2,3,3,4]), 5)
 
+    def test_longest_common_prefix(self):
+        self.assertEqual(q.longest_common_prefix(["flower", "flow"]), "flow")
+        self.assertEqual(q.longest_common_prefix(["flow", "flower"]), "flow")
+        self.assertEqual(q.longest_common_prefix(["flow", "flower", "float"]), "flo")
+        self.assertEqual(q.longest_common_prefix(["cat", "dog", "frog"]), "")
+
 
 if __name__ == '__main__':
     unittest.main()
