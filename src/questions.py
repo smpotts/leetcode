@@ -98,8 +98,23 @@ def count_letter_appearances(word):
     return d
 
 
+# if you are given a dictionary that maps from letters to frequencies, you might want to invert it; that is,
+# create a dictionary that maps from frequencies to letters
+def invert_dict(d):
+    inversion = dict()
+    for k in d:
+        val = d[k]
+        if val not in inversion:
+            inversion[val] = [k] # these square brackets are what makes the values a list
+        else:
+            inversion[val].append(k)
+
+    return inversion
+
+
 # Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
 # valid.
+# TODO: finish this one
 def is_valid(s):
     """
     :type s: str
@@ -114,6 +129,6 @@ def is_valid(s):
     # iterate on both ends?
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    count_letter_appearances('word')
+    test_dict = dict({'w': 1, 'o': 1, 'r': 1, 'd': 1})
+    invert_dict(test_dict)
