@@ -61,14 +61,74 @@ def remove_duplicates(nums):
     return len(uniques)
 
 
-# def longest_common_prefix(strs):
-#     """
-#     :type strs: List[str]
-#     :rtype: str
-#     """
+# Write a function to find the longest common prefix string amongst an array of strings.
+def longest_common_prefix(strs=["flowers", "flow"]):
+    """
+    :type strs: List[str]
+    :rtype: str
+    """
+
+    # grab the first string to use to compare against the others
+    first_str = strs[0]
+
+    # loop through each character in the first one
+    # build a string as we go until we hit a character that is not a match then break
+    matched_results = []
+    for word in strs[1:]:
+        # loop through the length of the shorter word
+
+        matched_letters = ""
+        for i in range(min(len(word), len(first_str))):
+            if first_str[i] == word[i]:
+                matched_letters += word[i]
+        matched_results.append(matched_letters)
+
+    return min(matched_results, key=len)
 
 
-# Press the green button in the gutter to run the script.
+# Suppose you are given a string, and you want to count how many times each letter appears.
+def count_letter_appearances(word):
+    d = {}
+    for c in word:
+        if c not in d:
+            d.update({c: 1})
+        else:
+            val = d[c] + 1
+            d.update({c: val})
+    return d
+
+
+# if you are given a dictionary that maps from letters to frequencies, you might want to invert it; that is,
+# create a dictionary that maps from frequencies to letters
+def invert_dict(d):
+    inversion = dict()
+    for k in d:
+        val = d[k]
+        if val not in inversion:
+            inversion[val] = [k] # these square brackets are what makes the values a list
+        else:
+            inversion[val].append(k)
+
+    return inversion
+
+
+# Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
+# valid.
+# TODO: finish this one
+def is_valid(s):
+    """
+    :type s: str
+    :rtype: bool
+    """
+    # brackets = ['(', '']
+    # loop through each character in the word
+    for c in s:
+        # if the letter is a bracket, add it to a stack or a map
+        pass
+    # loop through the stack
+    # iterate on both ends?
+
+
 if __name__ == '__main__':
-    two_sum()
-    is_palindrome()
+    test_dict = dict({'w': 1, 'o': 1, 'r': 1, 'd': 1})
+    invert_dict(test_dict)

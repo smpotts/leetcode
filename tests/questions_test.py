@@ -19,6 +19,22 @@ class QuestionsTest(unittest.TestCase):
         self.assertEqual(q.remove_duplicates([1,1,2]), 2)
         self.assertEqual(q.remove_duplicates([0,0,1,1,1,2,2,3,3,4]), 5)
 
+    def test_longest_common_prefix(self):
+        self.assertEqual(q.longest_common_prefix(["flower", "flow"]), "flow")
+        self.assertEqual(q.longest_common_prefix(["flow", "flower"]), "flow")
+        self.assertEqual(q.longest_common_prefix(["flow", "flower", "float"]), "flo")
+        self.assertEqual(q.longest_common_prefix(["cat", "dog", "frog"]), "")
+
+    def test_count_letter_appearances(self):
+        self.assertEqual(q.count_letter_appearances('word'), dict({'w': 1, 'o': 1, 'r': 1, 'd': 1}))
+        self.assertEqual(q.count_letter_appearances('brontosaurus'),
+                         dict({'a': 1, 'b': 1, 'o': 2, 'n': 1, 's': 2, 'r': 2, 'u': 2, 't': 1}))
+
+    def test_invert_dict(self):
+        self.assertEqual(q.invert_dict(dict({'w': 1, 'o': 1, 'r': 1, 'd': 1})), dict({1: ['w', 'o', 'r', 'd']}))
+        self.assertEqual(q.invert_dict(dict({'a': 1, 'p': 1, 'r': 2, 't': 1, 'o': 1})),
+                         dict({1: ['a', 'p', 't', 'o'], 2: ['r']}))
+
 
 if __name__ == '__main__':
     unittest.main()
