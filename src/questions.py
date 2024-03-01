@@ -86,6 +86,18 @@ def longest_common_prefix(strs=["flowers", "flow"]):
     return min(matched_results, key=len)
 
 
+# Suppose you are given a string, and you want to count how many times each letter appears.
+def count_letter_appearances(word):
+    d = {}
+    for c in word:
+        if c not in d:
+            d.update({c: 1})
+        else:
+            val = d[c] + 1
+            d.update({c: val})
+    return d
+
+
 # Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
 # valid.
 def is_valid(s):
@@ -99,11 +111,9 @@ def is_valid(s):
         # if the letter is a bracket, add it to a stack or a map
         pass
     # loop through the stack
-        # iterate on both ends?
+    # iterate on both ends?
 
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    # two_sum()
-    # is_palindrome()
-    longest_common_prefix()
+    count_letter_appearances('word')

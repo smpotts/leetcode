@@ -25,6 +25,11 @@ class QuestionsTest(unittest.TestCase):
         self.assertEqual(q.longest_common_prefix(["flow", "flower", "float"]), "flo")
         self.assertEqual(q.longest_common_prefix(["cat", "dog", "frog"]), "")
 
+    def test_count_letter_appearances(self):
+        self.assertEqual(q.count_letter_appearances('word'), dict({'w': 1, 'o': 1, 'r': 1, 'd': 1}))
+        self.assertEqual(q.count_letter_appearances('brontosaurus'),
+                         dict({'a': 1, 'b': 1, 'o': 2, 'n': 1, 's': 2, 'r': 2, 'u': 2, 't': 1}))
+
 
 if __name__ == '__main__':
     unittest.main()
