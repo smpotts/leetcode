@@ -112,6 +112,65 @@ def invert_dict(d):
     return inversion
 
 
+# Write a function called nested_sum that takes a list of lists of integers and adds up the elements from all of the
+# nested lists.
+def nested_sum(list_of_lists):
+    sum_elements = 0
+    for l in list_of_lists:
+        for elt in l:
+            sum_elements += elt
+
+    return sum_elements
+
+
+# Write a function called middle that takes a list and returns a new list that contains all but the first and
+# last elements
+def middle(t):
+    mid = t[1:len(t)-1]
+    return mid
+
+
+# Write a function called chop that takes a list, modifies it by removing the first and
+# last elements, and returns None
+def chop(t):
+    t.remove(t[0])
+    t.remove(t[len(t)-1])
+    return t
+
+
+# Write a function called has_duplicates that takes a list and returns True if there is any element that appears more
+# than once. It should not modify the original list
+def has_duplicates(elements):
+    seen = []
+    for elt in elements:
+        if elt in seen:
+            return True
+        seen.append(elt)
+
+    return False
+
+
+# Write a function that reads the file words.txt and builds a list with one element per word. Write two versions of
+# this function, one using the append method and the other using the idiom t = t + [x]. Which one takes longer to run?
+# Why?
+def wordlist():
+    elements = []
+    fin = open('words.txt')
+    for line in fin:
+        elements.append(line.strip()) # strip will get rid of the new line character at the end
+
+    return elements
+
+
+def wordlist_addition():
+    # this takes forever...
+    elements = []
+    fin = open('words.txt')
+    for line in fin:
+        word = line.strip()
+        elements = elements + [word] # have to put word in the square brackets
+    return elements
+
 # Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is
 # valid.
 # TODO: finish this one
@@ -130,5 +189,4 @@ def is_valid(s):
 
 
 if __name__ == '__main__':
-    test_dict = dict({'w': 1, 'o': 1, 'r': 1, 'd': 1})
-    invert_dict(test_dict)
+    print(wordlist())
